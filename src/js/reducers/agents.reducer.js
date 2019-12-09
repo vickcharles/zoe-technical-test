@@ -9,7 +9,16 @@ export const agents = (state = initialState, action) => {
     case agentsConstants.FETCH_AGENTS:
       return {
         ...state,
-        agents: [...state.agents]
+        agents: action.agents
+      };
+    case agentsConstants.MATCH_AGENTS:
+      return {
+        ...state,
+        agents: state.agents.reduce((prev, curr) => {
+          return Math.abs(curr - action.income) < Math.abs(prev - action.income)
+            ? curr
+            : prev;
+        })
       };
     default:
       return state;
