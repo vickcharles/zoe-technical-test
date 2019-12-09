@@ -5,7 +5,7 @@ import "../../../assets/sass/header.sass";
 
 const Header = () => {
   return (
-    <AppBar position="fixed">
+    <AppBar>
       <Container>
         <Toolbar className="tool-bar">
           <Typography variant="h6" className="title">
