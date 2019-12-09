@@ -21,6 +21,7 @@ const AgentsFilterInput = () => {
           fullWidth={true}
           label="Agent's Income"
           variant="filled"
+          className="search-input"
         />
       </div>
       <Button variant="contained" color="primary" className="mt-medium">
