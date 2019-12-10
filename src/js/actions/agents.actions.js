@@ -14,7 +14,7 @@ function fetchAgents(agents) {
 
 function matchAgents(income) {
   return {
-    type: agentsConstants.FETCH_AGENTS,
+    type: agentsConstants.MATCH_AGENTS,
     income
   };
 }

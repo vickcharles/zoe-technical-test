@@ -6,10 +6,13 @@ import { agentsActions } from "../../actions/agents.actions";
 
 const HomePage = () => {
   const { fetchAgents } = agentsActions;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    import("./AGENTS_LIST.json").then(res => dispatch(fetchAgents(res.data)));
+    import("../../../data/AGENTS_LIST.json").then(res =>
+      dispatch(fetchAgents(res.data))
+    );
   }, [dispatch, fetchAgents]);
 
   return (
