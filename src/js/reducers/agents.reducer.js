@@ -8,7 +8,7 @@ const initialState = {
 
 const closest = (array, num) => {
   let i = 0;
-  let minDiff = 1000;
+  let minDiff = 1500;
   let ans;
 
   for (i in array) {
