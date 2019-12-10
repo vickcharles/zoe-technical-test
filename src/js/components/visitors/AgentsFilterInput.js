@@ -9,11 +9,30 @@ const AgentsFilterInput = () => {
 
   const [income, setIncome] = useState("");
   const [redirect, setRedirect] = useState(false);
+  const [error, setError] = useState("");
+
   const dispatch = useDispatch();
 
+  const inputValidator = value => {
+    let error = "";
+    const re = /^[0-9\b]+$/;
+    if (value.length > 5 || value.length < 5) {
+      error = "please type 5 digits";
+    }
+    if (!re.test(value)) {
+      error = "plese type only numbers";
+    }
+
+    return error;
+  };
+
   const matchIncome = () => {
-    dispatch(matchAgents(income));
-    setRedirect(true);
+    const error = inputValidator(income);
+    setError(error);
+    if (error === "") {
+      dispatch(matchAgents(income));
+      setRedirect(true);
+    }
   };
 
   return (
@@ -33,8 +52,13 @@ const AgentsFilterInput = () => {
         <TextField
           id="outlined-basic"
           fullWidth={true}
+          error={!!error}
+          helperText={error}
           value={income}
-          onChange={e => setIncome(e.target.value)}
+          onChange={e => {
+            setIncome(e.target.value);
+            setError("");
+          }}
           label="Agent's Income"
           variant="filled"
           className="search-input"
