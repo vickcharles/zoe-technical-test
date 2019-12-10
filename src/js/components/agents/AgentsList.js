@@ -19,14 +19,14 @@ const AgentsList = () => {
       <Typography variant="h2" className="primary-color JennaSue-Font">
         Match agents result: {agents.income}
       </Typography>
-      <Grid container>
-        <Grid xs={6}>
-          {agents.matchAgents.slice(0, agentsToShow).map(agent => (
+      <Grid container spacing={2} md={8} className="m-auto">
+        {agents.matchAgents.slice(0, agentsToShow).map(agent => (
+          <Grid item xs={4}>
             <AgentCard {...agent} />
-          ))}
-        </Grid>
+          </Grid>
+        ))}
       </Grid>
-      <div className="mt-medium mb-medium" onClick={toggleShowMore}>
+      <div className="mt-medium mb-medium text-center" onClick={toggleShowMore}>
         <span className="grey-color cursor-pointer">
           show {agentsToShow === 3 ? "more" : "less"}
         </span>
