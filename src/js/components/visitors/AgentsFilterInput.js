@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Typography, TextField, Button } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { agentsActions } from "../../actions/agents.actions";
 import { Redirect } from "react-router-dom";
+import { Animated } from "react-animated-css";
 
 const AgentsFilterInput = () => {
   const { matchAgents } = agentsActions;
+  const incomeRef = useRef();
 
   const [income, setIncome] = useState("");
   const [redirect, setRedirect] = useState(false);
   const [error, setError] = useState("");
-
   const dispatch = useDispatch();
 
   const inputValidator = value => {
@@ -26,6 +27,10 @@ const AgentsFilterInput = () => {
     return error;
   };
 
+  useEffect(() => {
+    incomeRef.current.focus();
+  }, []);
+
   const matchIncome = () => {
     const error = inputValidator(income);
     setError(error);
@@ -36,44 +41,52 @@ const AgentsFilterInput = () => {
   };
 
   return (
-    <div className="text-center">
-      <Typography variant="h2" className="primary-color JennaSue-Font">
-        Match Agents
-      </Typography>
-      <Typography
-        paragraph={true}
-        variant="subtitle1"
-        gutterBottom
-        className="grey-color"
-      >
-        type agents income to match
-      </Typography>
-      <div className="mt-medium">
-        <TextField
-          id="outlined-basic"
-          fullWidth={true}
-          error={!!error}
-          helperText={error}
-          value={income}
-          onChange={e => {
-            setIncome(e.target.value);
-            setError("");
-          }}
-          label="Agent's Income"
-          variant="filled"
-          className="search-input"
-        />
+    <Animated
+      animationIn="bounceInDown"
+      animationOut="fadeOut"
+      isVisible={true}
+    >
+      <div className="text-center">
+        <Typography variant="h2" className="primary-color JennaSue-Font">
+          Match Agents
+        </Typography>
+
+        <Typography
+          paragraph={true}
+          variant="subtitle1"
+          gutterBottom
+          className="grey-color"
+        >
+          type agents income to match
+        </Typography>
+        <div className="mt-medium">
+          <TextField
+            id="outlined-basic"
+            fullWidth={true}
+            error={!!error}
+            inputRef={incomeRef}
+            helperText={error}
+            value={income}
+            onChange={e => {
+              setIncome(e.target.value);
+              setError("");
+            }}
+            label="Agent's Income"
+            variant="filled"
+            className="search-input"
+          />
+        </div>
+        <Button
+          variant="contained"
+          color="primary"
+          className="mt-medium"
+          onClick={matchIncome}
+        >
+          MATCH
+        </Button>
+        {redirect && <Redirect to="/agents" />}
       </div>
-      <Button
-        variant="contained"
-        color="primary"
-        className="mt-medium"
-        onClick={matchIncome}
-      >
-        MATCH
-      </Button>
-      {redirect && <Redirect to="/agents" />}
-    </div>
+    </Animated>
   );
 };
 
