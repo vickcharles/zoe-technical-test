@@ -6,7 +6,6 @@ import { agentsActions } from "../../actions/agents.actions";
 
 const HomePage = () => {
   const { fetchAgents } = agentsActions;
-
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -2,15 +2,20 @@ import React, { useState } from "react";
 import { Typography, TextField, Button } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { agentsActions } from "../../actions/agents.actions";
+import { Redirect } from "react-router-dom";
 
 const AgentsFilterInput = () => {
   const { matchAgents } = agentsActions;
 
   const [income, setIncome] = useState("");
+  const [redirect, setRedirect] = useState(false);
   const dispatch = useDispatch();
+
   const matchIncome = () => {
     dispatch(matchAgents(income));
+    setRedirect(true);
   };
+
   return (
     <div className="text-center">
       <Typography variant="h2" className="primary-color JennaSue-Font">
@@ -43,6 +48,7 @@ const AgentsFilterInput = () => {
       >
         MATCH
       </Button>
+      {redirect && <Redirect to="/agents" />}
     </div>
   );
 };

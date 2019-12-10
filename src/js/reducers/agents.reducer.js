@@ -1,7 +1,9 @@
 import { agentsConstants } from "../constants/agents.constants";
 
 const initialState = {
-  agents: []
+  agents: [],
+  matchAgents: [],
+  income: 0
 };
 
 const closest = (array, num) => {
@@ -40,7 +42,8 @@ export const agents = (state = initialState, action) => {
 
       return {
         ...state,
-        agents: filteredData.filter(e => e !== undefined)
+        matchAgents: filteredData.filter(e => e !== undefined),
+        income: action.income
       };
 
     default:
