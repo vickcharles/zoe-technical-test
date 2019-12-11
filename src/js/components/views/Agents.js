@@ -7,6 +7,7 @@ import { Animated } from "react-animated-css";
 
 const Agents = () => {
   const agents = useSelector(state => state.agents);
+
   const emptyList = (
     <div className="text-center">
       <Typography variant="h2" className="primary-color JennaSue-Font">
@@ -27,7 +28,7 @@ const Agents = () => {
     <Container>
       {agents.matchAgents.length > 0 ? (
         <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
-          <AgentsList />{" "}
+          <AgentsList /> {" "}
         </Animated>
       ) : (
         emptyList
