@@ -59,31 +59,33 @@ const AgentsFilterInput = () => {
         >
           type agents income to match
         </Typography>
-        <div className="mt-medium">
-          <TextField
-            id="outlined-basic"
-            fullWidth={true}
-            error={!!error}
-            inputRef={incomeRef}
-            helperText={error}
-            value={income}
-            onChange={e => {
-              setIncome(e.target.value);
-              setError("");
-            }}
-            label="Agent's Income"
-            variant="filled"
-            className="search-input"
-          />
-        </div>
-        <Button
-          variant="contained"
-          color="primary"
-          className="mt-medium"
-          onClick={matchIncome}
-        >
-          MATCH
-        </Button>
+        <form onSubmit={matchIncome}>
+          <div className="mt-medium">
+            <TextField
+              id="outlined-basic"
+              fullWidth={true}
+              error={!!error}
+              inputRef={incomeRef}
+              helperText={error}
+              value={income}
+              onChange={e => {
+                setIncome(e.target.value);
+                setError("");
+              }}
+              label="Agent's Income"
+              variant="filled"
+              className="search-input"
+            />
+          </div>
+          <Button
+            variant="contained"
+            color="primary"
+            className="mt-medium"
+            type="submit"
+          >
+            MATCH
+          </Button>
+        </form>
         {redirect && <Redirect to="/agents" />}
       </div>
     </Animated>
