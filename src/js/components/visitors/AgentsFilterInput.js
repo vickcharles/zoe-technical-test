@@ -31,7 +31,8 @@ const AgentsFilterInput = () => {
     incomeRef.current.focus();
   }, []);
 
-  const matchIncome = () => {
+  const matchIncome = e => {
+    e.preventDefault();
     const error = inputValidator(income);
     setError(error);
     if (error === "") {
