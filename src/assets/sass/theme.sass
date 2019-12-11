@@ -4,10 +4,13 @@
 	font-family: 'JennaSue'
 	src: url('../fonts/JennaSue.ttf')
 
-
 @font-face
 	font-family: 'Montserrat'
 	src: url('../fonts/Montserrat-Regular.ttf')
+
+@font-face
+	font-family: 'Montserrat-semi-bold'
+	src: url('../fonts/Montserrat-SemiBold.ttf')
 
 body
   margin: 0
@@ -15,6 +18,11 @@ body
 
 a
   text-decoration: none  !important
+
+.action-text
+  font-size: 13px !important
+  text-decoration: underline !important
+  font-family: 'Montserrat-semi-bold' !important
 
 // Section
 .section
@@ -24,6 +32,7 @@ a
   margin: 0 auto
   box-shadow: 1px 1px 9px -4px rgba(0,0,0,0.49) !important
 
+// Main app content
 .app-content
   margin-top: 64px !important
   padding-top: 20px !important
@@ -32,8 +41,14 @@ a
 .text-center
   text-align: center
 
+.text-right
+  text-align: right
+
 .primary-color
   color: $primaryColor !important
+
+.secondary-color
+  color: $secondaryColor !important
 
 .grey-color
  color: #b3b3b3 !important
@@ -56,6 +71,6 @@ a
   input
     font-size: 22px !important
 
-  // Cursor
+// Cursor
 .cursor-pointer
   cursor: pointer !important

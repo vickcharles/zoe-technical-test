@@ -18,7 +18,7 @@ const AgentsList = () => {
     <div>
       <Grid container spacing={2} md={8} className="m-auto">
         {agents.matchAgents.slice(0, agentsToShow).map(agent => (
-          <Grid item xs={4}>
+          <Grid item xs={12} md={4}>
             <AgentCard {...agent} />
           </Grid>
         ))}

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 
 import {
-  Grid,
   FormControl,
   Select,
   InputLabel,
-  MenuItem
+  MenuItem,
 } from "@material-ui/core";
 
 import { useDispatch } from "react-redux";
@@ -78,64 +77,60 @@ const AgentsSorter = () => {
   };
 
   return (
-    <Grid container>
-      <Grid xs={12}>
-        <FormControl variant="filled" className={classes.formControl}>
-          <InputLabel id="demo-simple-select-filled-label">
-            Sort by id
-          </InputLabel>
-          <Select
-            labelId="demo-simple-select-filled-label"
-            id="demo-simple-select-filled"
-            fullWidth={true}
-            value={sortById}
-            onChange={handleSortById}
-          >
-            <MenuItem value="">
-              <em>Sort by name</em>
-            </MenuItem>
-            <MenuItem value="ASC">Asc</MenuItem>
-            <MenuItem value="DESC">Desc</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl variant="filled" className={classes.formControl}>
-          <InputLabel id="demo-simple-select-filled-label">
-            Sort by name
-          </InputLabel>
-          <Select
-            labelId="demo-simple-select-filled-label"
-            id="demo-simple-select-filled"
-            fullWidth={true}
-            value={sortByName}
-            onChange={handleSortByName}
-          >
-            <MenuItem value="">
-              <em>Sort by name</em>
-            </MenuItem>
-            <MenuItem value="ASC">Asc</MenuItem>
-            <MenuItem value="DESC">Desc</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl variant="filled" className={classes.formControl}>
-          <InputLabel id="demo-simple-select-filled-label">
-            Sort by income
-          </InputLabel>
-          <Select
-            labelId="demo-simple-select-filled-label"
-            id="demo-simple-select-filled"
-            fullWidth={true}
-            value={sortByIncome}
-            onChange={handleSortByIncome}
-          >
-            <MenuItem value="">
-              <em>Sort by name</em>
-            </MenuItem>
-            <MenuItem value="ASC">Asc</MenuItem>
-            <MenuItem value="DESC">Desc</MenuItem>
-          </Select>
-        </FormControl>
-      </Grid>
-    </Grid>
+    <>
+      <FormControl variant="filled" className={classes.formControl}>
+        <InputLabel id="demo-simple-select-filled-label">Sort by id</InputLabel>
+        <Select
+          labelId="demo-simple-select-filled-label"
+          id="demo-simple-select-filled"
+          fullWidth={true}
+          value={sortById}
+          onChange={handleSortById}
+        >
+          <MenuItem value="">
+            <em>Sort by name</em>
+          </MenuItem>
+          <MenuItem value="ASC">Asc</MenuItem>
+          <MenuItem value="DESC">Desc</MenuItem>
+        </Select>
+      </FormControl>
+      <FormControl variant="filled" className={classes.formControl}>
+        <InputLabel id="demo-simple-select-filled-label">
+          Sort by name
+        </InputLabel>
+        <Select
+          labelId="demo-simple-select-filled-label"
+          id="demo-simple-select-filled"
+          fullWidth={true}
+          value={sortByName}
+          onChange={handleSortByName}
+        >
+          <MenuItem value="">
+            <em>Sort by name</em>
+          </MenuItem>
+          <MenuItem value="ASC">Asc</MenuItem>
+          <MenuItem value="DESC">Desc</MenuItem>
+        </Select>
+      </FormControl>
+      <FormControl variant="filled" className={classes.formControl}>
+        <InputLabel id="demo-simple-select-filled-label">
+          Sort by income
+        </InputLabel>
+        <Select
+          labelId="demo-simple-select-filled-label"
+          id="demo-simple-select-filled"
+          fullWidth={true}
+          value={sortByIncome}
+          onChange={handleSortByIncome}
+        >
+          <MenuItem value="">
+            <em>Sort by name</em>
+          </MenuItem>
+          <MenuItem value="ASC">Asc</MenuItem>
+          <MenuItem value="DESC">Desc</MenuItem>
+        </Select>
+      </FormControl>
+    </>
   );
 };
 
