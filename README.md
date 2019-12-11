@@ -39,7 +39,7 @@ To run tests use `npm run test`
   I used material ui because their have awesome components to build user interfaces with react, but i used SASS as preprocessor to customize some of them and get my test with own styles
 
 ### HOOKS!! *__*
-  when I started working with react the hooks had not come out, basically hooks allow us to create components just writing functions, the functions can have state imorting hooks from react module for that reason i create all my componenets using hooks, i also i used some hooks of redux.
+  when I started working with ReactJs the hooks had not come out, basically hooks allow us to create components just writing functions, the functions can have state importing hooks from react module for that reason i create all my componenets using hooks, i also i used some hooks of redux.
 
 ## RECOMENDATIONS
   * to go more fast in the challenge i used react without typescript but i recommend adding TypeScript to have the benefits of this Superset!
