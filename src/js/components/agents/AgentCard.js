@@ -7,10 +7,10 @@ const AgentCard = ({ income, name, avatar, id }) => {
   return (
     <Card className="card mt-medium">
       <Grid container>
-        <Grid xs={12} md={12}>
+        <Grid item xs={12} md={12}>
           <Avatar className="avatar m-auto" alt="Remy Sharp" src={avatar} />
         </Grid>
-        <Grid xs={12} md={12} className="text-center mt-medium">
+        <Grid item xs={12} md={12} className="text-center mt-medium">
           <Typography>{name}</Typography>
           <Typography>Income: {income}</Typography>
           <Typography>Id: {id}</Typography>
