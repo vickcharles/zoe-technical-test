@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import AgentCard from "../agents/AgentCard";
-import { Grid, Typography } from "@material-ui/core";
-import AgentsSorter from "./AgentsSorter";
+import { Grid } from "@material-ui/core";
 
 const AgentsList = () => {
   const agents = useSelector(state => state.agents);
@@ -17,10 +16,6 @@ const AgentsList = () => {
   };
   return (
     <div>
-      <Typography variant="h2" className="primary-color JennaSue-Font">
-        Match agents result: {agents.income}
-      </Typography>
-      <AgentsSorter />
       <Grid container spacing={2} md={8} className="m-auto">
         {agents.matchAgents.slice(0, agentsToShow).map(agent => (
           <Grid item xs={4}>

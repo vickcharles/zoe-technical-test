@@ -4,6 +4,7 @@ import { Container, Typography, Button } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Animated } from "react-animated-css";
+import AgentsSorter from "../agents/AgentsSorter"
 
 const Agents = () => {
   const agents = useSelector(state => state.agents);
@@ -28,7 +29,13 @@ const Agents = () => {
     <Container>
       {agents.matchAgents.length > 0 ? (
         <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
-          <AgentsList /> {" "}
+          <div>
+            <Typography variant="h2" className="primary-color JennaSue-Font">
+              Match agents result: {agents.income}
+            </Typography>
+            <AgentsSorter />
+            <AgentsList />{" "}
+          </div>
         </Animated>
       ) : (
         emptyList
